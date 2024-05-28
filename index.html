@@ -1,0 +1,146 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="resland.png">
+  <title>Resland</title>
+</head>
+<div id="debug">
+</div>
+<div id="load_menu" width="100vw" height="100vh">
+  <img src="resland.png">
+  <h1>Resland</h1>
+  <h2>A Web Voxel Game</h2>
+  <div style="position: absolute; bottom: 5vh; width: 100vw;">
+    <div style="display: block; text-align: center;">
+      <h3 id="loading_text" style="display: inline-block;">Checking Browser Compatibility</h3>
+      <p class="loading" style="display: inline-block;"></p>
+    </div>
+    <progress value="50" max="100" id="loading_bar"></progress>
+  </div>
+</div>
+<div id="menu" style="display: none;">
+  <center>
+    <img src="resland.png" style="vertical-align: bottom; width:30%">
+  </center>
+  <h1 style="text-align: center;">Resland</h1>
+  <h2 style="text-align: center;">A Web Voxel Game</h2>
+  <button id="return">
+    Return
+  </button>
+  <button id="controls"
+    onclick='alert("Game Controls:\n\nWalk Forward: W\nWalk Backward: S\nWalk Right: A\nWalk Left: D\nJump: Space\nBreak Block: Left Click\nPlace Block: Right Click\nKeyboard Upper Numbers: Select a block of Hotbar\nMouse Whell Up: Next Block in Hotbar\nMouse Whell Down: Previous Block in Hotbar")'>
+    Controls
+  </button>
+  <button id="credits" onclick='alert("Credits:\n\nCodes by Hugo Gabriel Olabi\nTextures by Hugo Gabriel Olabi")'>
+    Credits
+  </button>
+</div>
+<table class="coord">
+  <thead>
+    <tr>
+      <th scope="col">X</th>
+      <th scope="col">Y</th>
+      <th scope="col">Z</th>
+    </tr>
+    <tr>
+      <th scope="col" id="coordX">0</th>
+      <th scope="col" id="coordY">0</th>
+      <th scope="col" id="coordZ">0</th>
+    </tr>
+  </thead>
+</table>
+<div id="chat">
+  <div id="messages">
+  </div>
+  <input id="msg" type="text" placeholder="Type something:">
+</div>
+<span class="crosshair"> </span>
+<span class="crosshair2"> </span>
+<div id="hotbar">
+  <div>
+    <div id="hotbarblocks">
+      <div id="hotbarblock1"></div>
+      <div id="hotbarblock2"></div>
+      <div id="hotbarblock3"></div>
+      <div id="hotbarblock4"></div>
+      <div id="hotbarblock5"></div>
+      <div id="hotbarblock6"></div>
+      <div id="hotbarblock7"></div>
+      <div id="hotbarblock8"></div>
+      <div id="hotbarblock9"></div>
+    </div>
+    <img id="hotbarbar" src="./game/textures/hotbar.png">
+    <div id="hotbarhoverdiv">
+      <img class="hotbarhoveractive" id="hotbarhover1" src="./game/textures/hotbarHover.png">
+      <img class="hotbarhover" id="hotbarhover2" src="./game/textures/hotbarHover.png">
+      <img class="hotbarhover" id="hotbarhover3" src="./game/textures/hotbarHover.png">
+      <img class="hotbarhover" id="hotbarhover4" src="./game/textures/hotbarHover.png">
+      <img class="hotbarhover" id="hotbarhover5" src="./game/textures/hotbarHover.png">
+      <img class="hotbarhover" id="hotbarhover6" src="./game/textures/hotbarHover.png">
+      <img class="hotbarhover" id="hotbarhover7" src="./game/textures/hotbarHover.png">
+      <img class="hotbarhover" id="hotbarhover8" src="./game/textures/hotbarHover.png">
+      <img class="hotbarhover" id="hotbarhover9" src="./game/textures/hotbarHover.png">
+    </div>
+    <div id="hotbaritemdiv">
+      <img class="hotbaritem" id="hotbarhover1" src="./game/textures/items/grass.png">
+      <img class="hotbaritem" id="hotbarhover2" src="./game/textures/items/dirt.png">
+      <img class="hotbaritem" id="hotbarhover3" src="./game/textures/items/stone.png">
+      <img class="hotbaritem" id="hotbarhover4" src="./game/textures/items/sand.png">
+      <img class="hotbaritem" id="hotbarhover5" src="./game/textures/items/log.png">
+      <img class="hotbaritem" id="hotbarhover6" src="./game/textures/items/leaf.png">
+      <img class="hotbaritem" id="hotbarhover7" src="./game/textures/items/wood.png">
+      <img class="hotbaritem" id="hotbarhover8" src="./game/textures/items/bricks.png">
+      <img class="hotbaritem" id="hotbarhover9" src="./game/textures/items/stone_bricks.png">
+    </div>
+  </div>
+  <div class="health">
+    <h1 id="healthBar">1</h1>
+    <h2>1</h2>
+  </div>
+  <div id="supply">
+    <div class="food">
+      100%
+    </div>
+    <div class="water">
+      100%
+    </div>
+  </div>
+</div>
+<div id="alpha">
+  <h1>Resland Alpha 2.5</h1>
+  <h2>Developed by Hugo Gabriel O.</h2>
+</div>
+<script type="module" src="./game/client.js"></script>
+<script>
+  window.onload = function () {
+    setTimeout(function () {
+      var menu = document.getElementById("menu");
+      var ld_menu = document.getElementById("load_menu");
+      var ld_bar = document.getElementById("loading_bar");
+      var ld_txt = document.getElementById("loading_text");
+      var tests_completed = 0;
+      var tests_failed = false;
+      var tests = {
+        webgl2: null
+      }
+      try {
+        let canvas = document.createElement('canvas');
+        tests.webgl2 = !!window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'));
+      } catch (e) {tests.webgl2 = false; tests_failed = true}
+
+      if (!tests_failed) {
+        ld_bar.value = 100;
+        ld_txt.innerText = "Done!"
+        ld_menu.style.display = "none";
+        menu.style.display = "inline-block";
+
+      }
+    }, 2)
+  }
+</script>
+</body>
+
+</html>

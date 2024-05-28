@@ -1,0 +1,25 @@
+{
+  "name": "resland",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "alea": "^1.0.1",
+    "fastnoise-lite": "^1.1.1",
+    "hyperid": "^3.2.0",
+    "noise": "^0.0.0",
+    "peerjs": "^1.5.2",
+    "simplex": "^0.2.0",
+    "simplex-noise": "^4.0.1",
+    "three": "^0.158.0",
+    "three.meshline": "^1.4.0",
+    "vite": "^5.2.2"
+  },
+  "devDependencies": {
+    "electron": "^28.2.1"
+  }
+}

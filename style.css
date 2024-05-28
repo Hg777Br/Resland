@@ -1,0 +1,381 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Pixelify+Sans&display=swap');
+
+body {
+  overflow: hidden;
+  margin: 0px;
+  transition-duration: 0.5s;
+}
+
+#debug {
+  display: block;
+  position: fixed;
+  right: 5%;
+  transform: translate(-50%, 0%);
+
+  * {
+    margin-right: 0%;
+    padding-right: 0%;
+    margin-left: 0%;
+    padding-left: 0%;
+    display: inline-block;
+  }
+}
+
+.crosshair {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 0.75vh;
+  width: 4.25vh;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+
+  background-color: #ffffff44;
+  backdrop-filter: invert(1);
+}
+
+.crosshair2 {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.75vh;
+  height: 4.25vh;
+  transform: translate(-50%, -50%);
+  background-blend-mode: screen;
+  mix-blend-mode: screen;
+  background-color: #ffffff44;
+  backdrop-filter: invert(1);
+}
+
+#hotbar {
+  position: fixed;
+  background: none;
+  display: inherit;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+#hotbarbar {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  height: 7.6vh;
+}
+
+.hotbarhover {
+  margin-right: 0%;
+  padding-right: 0%;
+  margin-left: 0%;
+  padding-left: 0%;
+  white-space-collapse: discard;
+  width: 7.125vh;
+  height: 7.6vh;
+  display: inline-block;
+  opacity: 0;
+}
+
+
+
+.hotbarhoveractive {
+  display: inline-block;
+  margin-right: 0%;
+  padding-right: 0%;
+  margin-left: 0%;
+  padding-left: 0%;
+  white-space-collapse: discard;
+  width: 7.125vh;
+  height: 7.6vh;
+  image-rendering: pixelated;
+}
+
+#hotbarhoverdiv {
+  position: fixed;
+  display: flex;
+  z-index: 1;
+  top: -2.5%;
+  left: 0vw;
+}
+
+#hotbaritemdiv {
+  position: fixed;
+  display: flex;
+  z-index: 1;
+  top: -2.5%;
+  left: 0vw;
+}
+
+.hotbaritem {
+  margin-right: 0%;
+  padding-right: 0%;
+  margin-left: 0%;
+  padding-left: 0%;
+  white-space-collapse: discard;
+  width: 7.125vh;
+  height: 7.6vh;
+  padding-left: 0.02vw;
+  padding-top: 0.1vw;
+  image-rendering: pixelated;
+  scale: 0.70;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.health {
+  display: inline-flex;
+  width: 100%;
+  text-align: center;
+  background: #440000;
+  outline: #fff solid 1px;
+  font-family: 'Pixelify Sans', sans-serif;
+  color: white;
+}
+
+.health h1 {
+
+  background: red;
+  width: 50%;
+  font-size: small;
+  padding: 0;
+  margin: 0;
+}
+
+.health h2 {
+  display: absolute;
+  flex-grow: 1;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background: transparent;
+  font-size: small;
+  z-index: 2;
+  top: -100px;
+}
+
+#supply {
+  display: inline-flex;
+  text-align: center;
+  width: 100%;
+}
+
+table.coord {
+  position: absolute;
+  color: white;
+  border-collapse: collapse;
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.coord th,
+.coord td {
+  border-bottom: 1px solid white;
+  padding: 1px 1px;
+}
+
+#chat {
+  font-family: 'Pixelify Sans', sans-serif;
+  color: white;
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  background-color: #242424cc
+}
+
+#chat #messages {
+  overflow-y: auto;
+  width: 100%;
+  flex-grow: 1;
+  outline: #fff solid 2px;
+}
+
+#chat #msg {
+  width: 100%;
+  height: 30px;
+  outline: #fff solid 2px;
+  background-color: #242424cc;
+  color: white;
+}
+
+#chat #messages div {
+  width: 100%;
+}
+
+#chat #messages div>* {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+#alpha {
+  position: absolute;
+  display: block;
+  background: none;
+  bottom: 85vh;
+  width: 15vw;
+  left: 50%;
+  translate: -50%;
+}
+
+#alpha h1 {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 2.5vh;
+  color: yellow;
+  text-align: center;
+}
+
+
+#alpha h2 {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: 2.5vh;
+  color: lime;
+  text-align: center;
+}
+
+#menu {
+  position: absolute;
+  background-color: #242424;
+  top: 0px;
+  left: 0px;
+  width: 30%;
+  height: 100%;
+
+  z-index: 3;
+}
+
+#menu div {
+  display: inline-block;
+}
+
+#menu h1 {
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  font-size: 4.5vw;
+  color: white;
+  text-shadow: 1px 1px 0 #474747, 2px 2px 0 #474747, 3px 3px 0 #474747, 4px 4px 0 #474747, 5px 5px 0 #474747;
+  line-height: 0px
+}
+
+#menu button {
+  height: 50px;
+  width: 95%;
+  font-size: 3vh;
+  margin-top: 5px;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  font-family: 'Pixelify Sans', sans-serif;
+  border-radius: 7px;
+}
+
+#menu h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: #a8a8a8;
+  text-align: center;
+  font-size: 1.5vw;
+}
+
+#load_menu {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #242424;
+  z-index: 1;
+}
+
+#load_menu h1 {
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  font-size: 4.5vw;
+  color: white;
+  text-shadow: 1px 1px 0 #474747, 2px 2px 0 #474747, 3px 3px 0 #474747, 4px 4px 0 #474747, 5px 5px 0 #474747;
+  line-height: 5px
+}
+
+#load_menu img {
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  margin-top: 30px;
+}
+
+#load_menu h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: #a8a8a8;
+  text-align: center;
+  font-size: 1.5vw;
+}
+
+#load_menu div h3 {
+  font-family: 'Orbitron', sans-serif;
+  color: #a8a8a8;
+  font-size: 1.5vw;
+
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+
+}
+
+#load_menu progress {
+  position: absolute;
+  width: 97vw;
+  left: 1.5vw
+}
+
+@keyframes loading_points {
+  0% {
+    content: "🌑 "
+  }
+
+  12.5% {
+    content: "🌒 "
+  }
+
+  25% {
+    content: "🌓 "
+  }
+
+  37.5% {
+    content: "🌔 "
+  }
+
+  50% {
+    content: "🌕 "
+  }
+
+  62.5% {
+    content: "🌖 "
+  }
+
+  74.5% {
+    content: "🌗 "
+  }
+
+  86% {
+    content: "🌘 "
+  }
+}
+
+.loading {
+  &:after {
+    animation: loading_points 1s linear infinite;
+    display: block;
+    content: "🌑";
+    font-family: 'Orbitron', sans-serif;
+    color: #a8a8a8;
+    font-size: 1.5vw;
+  }
+}
