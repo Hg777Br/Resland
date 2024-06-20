@@ -1,13 +1,12 @@
-# Resland 
+# Resland
+O projeto 'Resland' é uma demonstração de conceito de jogo voxel feito para navegadores totalmente desenvolvido com apenas HTML, CSS e JavaScript.
+
+O projeto foi criado para aprender, apresentando erros estruturais. Com o projeto aprendi a organizar o projeto de forma mais orgânica e otimizada, com ideias de refazê-lo de forma eficiente, porém em outra linguagem de baixo nível.
 
 ![alt text](demo.png "Demo foto")
 
-## Um jogo web voxel
-
 ## Aviso:
 Utilize navegadores baseado em chromium
-
-### Criado usando apenas Javascript
 
 ## Instalando:
 
